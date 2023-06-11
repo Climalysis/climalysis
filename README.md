@@ -62,14 +62,6 @@ from climalysis import module1, module2
 
 You can now access the functions/classes in these modules.
 
-## Tests
-
-If you wish to run tests, use the following command in the root directory of the project:
-
-```shell
-python -m unittest discover
-```
-
 ## Contributing
 
 We warmly welcome contributions! Please see [here](CONTRIBUTING.md) for details on how to contribute.
