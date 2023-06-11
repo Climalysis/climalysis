@@ -23,7 +23,6 @@ Whether you're seeking advanced research tools, passionate about data analysis, 
 1. [Installation](#installation)
 2. [Dependencies](#dependencies)
 3. [Usage](#usage)
-4. [Tests](#tests)
 5. [Contributing](#contributing)
 6. [License](#license)
 7. [Contact](#contact)
