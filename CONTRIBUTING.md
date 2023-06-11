@@ -1,6 +1,6 @@
 # Contributing to Climalysis
 
-First and foremost, thank you! We appreciate that you want to contribute to Climalysis, your time is valuable, and your contributions mean a lot to us.
+First and foremost, thank you! We appreciate that you want to contribute to Climalysis, your time is valuable, and your contributions mean a lot to us!
 
 ## Important!
 
