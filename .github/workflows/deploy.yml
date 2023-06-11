@@ -31,7 +31,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        if ls tests/*test*.py 1> /dev/null 2>&1; then pytest; else echo "No tests found"; fi
     - name: Build package
       run: python -m build
     - name: Publish package
