@@ -73,8 +73,6 @@ This project is licensed under the terms of the GNU General Public License. See 
 
 If you have any questions, feel free to reach out to us.
 
-jake.w.casselman@gmail.com
-
 ## Acknowledgments
 
 We would like to express our gratitude to all contributors and users of Climalysis. Your support is greatly appreciated.
