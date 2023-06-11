@@ -24,7 +24,7 @@ Never made an open source contribution before? Wondering how contributions work 
 
 2. Fork the repository associated with the issue to your local GitHub organization. This means that you will have a copy of the repository under `your-GitHub-username/climalysis.git`.
 
-3. Clone the repository to your local machine using `git clone https://github.com/jake-casselman/climalysis.git`.
+3. Clone the repository to your local machine using `git clone https://github.com/Climalysis/climalysis.git`.
 
 4. Create a new branch for your fix using `git checkout -b branch-name-here`.
 
