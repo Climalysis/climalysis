@@ -49,7 +49,6 @@ Ensure you have Python 3.x installed on your system before installation.
 
 Climalysis requires the following Python packages:
 
-- List dependencies here
 
 ## Usage
 
