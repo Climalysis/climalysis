@@ -1,7 +1,8 @@
 # Climalysis: Your Toolkit for Climate Impact Analysis ☁️🌞
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/jake-casselman/climalysis/blob/main/LICENSE) [![codebeat badge](https://codebeat.co/badges/d65911fc-a11d-4ca2-a914-792df78cb420)](https://codebeat.co/projects/github-com-jake-casselman-climalysis-main) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/jake-casselman/climalysis/blob/main/LICENSE) [![codebeat badge](https://codebeat.co/badges/d65911fc-a11d-4ca2-a914-792df78cb420)](https://codebeat.co/projects/github-com-jake-casselman-climalysis-main) [![DOI](https://zenodo.org/badge/652251221.svg)](https://zenodo.org/badge/latestdoi/652251221)
 
-Developed by some of the current and past members of ETH's Subseasonal to Seasonal research group, Climalysis is more than just a project – it's your one-stop platform for comprehensive climate impact studies. 
+
+Developed by an assortment of active and past climate researchers, Climalysis is more than just a project – it's your one-stop platform for comprehensive climate impact studies. 
 
 **Our Mission:**
 
