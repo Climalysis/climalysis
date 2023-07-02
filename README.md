@@ -63,7 +63,7 @@ These packages can be installed using pip by running the following command in yo
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 ## Usage
 
