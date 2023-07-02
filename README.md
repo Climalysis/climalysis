@@ -52,6 +52,18 @@ Ensure you have Python 3.x installed on your system before installation.
 
 Climalysis requires the following Python packages:
 
+- numpy==1.23.5
+- scikit_learn==1.2.1
+- scipy==1.9.3
+- setuptools==67.8.0
+- statsmodels==0.13.5
+- xarray==2023.3.0
+
+These packages can be installed using pip by running the following command in your terminal:
+
+```bash
+pip install -r requirements.txt
+
 
 ## Usage
 
