@@ -8,11 +8,7 @@ By participating in this project, you agree to abide by the code of conduct.
 
 ## What do I need to know to help?
 
-If you are looking to help to with a code contribution, our project uses Python. If you don't feel ready to make a code contribution yet, no problem! You can also check out the documentation issues or the design issues that we have.
-
-If you are interested in making a code contribution and would like to learn more about the technologies that we use, check out the list below.
-
-- Include technologies you use here
+If you are looking to help to with a code contribution, our project uses ```Python```. If you don't feel ready to make a code contribution yet, no problem! You can also check out the documentation issues or the design issues that we have.
 
 You can also help by reviewing other people's pull requests!
 
@@ -22,7 +18,7 @@ Never made an open source contribution before? Wondering how contributions work 
 
 1. Find an issue that you are interested in addressing or a feature that you would like to add.
 
-2. Fork the repository associated with the issue to your local GitHub organization. This means that you will have a copy of the repository under `your-GitHub-username/climalysis.git`.
+2. Fork the repository associated with the issue to your local GitHub organization. This means that you will have a copy of the repository under `Climalysis/climalysis.git`.
 
 3. Clone the repository to your local machine using `git clone https://github.com/Climalysis/climalysis.git`.
 
@@ -50,7 +46,7 @@ Never made an open source contribution before? Wondering how contributions work 
 
 ## Where can I go for help?
 
-If you need help, you can ask questions on our mailing list, IRC chat, or directly in issues.
+If you need help, you can ask questions directly in issues. We are working on creating a mailing list in the near future, so stay tuned!
 
 ## What does the Code of Conduct mean for me?
 
