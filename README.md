@@ -2,7 +2,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/jake-casselman/climalysis/blob/main/LICENSE) [![codebeat badge](https://codebeat.co/badges/1e41f852-36fb-456c-a4ac-27812db8082c)](https://codebeat.co/projects/github-com-climalysis-climalysis-main) ![PyPI](https://img.shields.io/pypi/v/climalysis.svg) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8105734.svg)](https://doi.org/10.5281/zenodo.8105734)
 
 
-Developed by an assortment of active and past climate researchers, Climalysis is more than just a project – it's your one-stop platform for comprehensive climate impact studies. 
+Developed by an assortment of active and past climate researchers, Climalysis is more than just a project – it's your one-stop platform for comprehensive climate impact analysis tools. 
 
 **Project Lead:** Jake Casselman (GitHub username: @jake-casselman)
 
@@ -13,7 +13,6 @@ Climalysis seeks to propel climate research forward by democratizing access to a
 **What We Offer:**
 
 Dive into our code, explore complex climate data, learn with us, and contribute your insights. With Climalysis, you are empowered to uncover the climate secrets of our world. 
-
 
 ---
 Whether you're a climate scientist seeking advanced research tools, a data enthusiast, or simply curious about climate impacts, Climalysis invites you to join us. Explore, learn, contribute, and together, let's deepen our understanding of the world's climate and drive towards a sustainable future.
