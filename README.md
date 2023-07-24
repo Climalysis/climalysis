@@ -19,7 +19,6 @@ Dive into our code, explore complex climate data, learn with us, and contribute 
 ---
 Whether you're a climate scientist seeking advanced research tools, a data enthusiast, or simply curious about climate impacts, Climalysis invites you to join us. Explore, learn, contribute, and together, let's deepen our understanding of the world's climate and drive towards a sustainable future.
 
-
 ## Table of Contents
 
 1. [Installation](#installation)
@@ -32,8 +31,11 @@ Whether you're a climate scientist seeking advanced research tools, a data enthu
 8. [Supporters](#supporters)
 9. [Conflict of Interest](#conflict-of-interest)
 
-
 ## Installation
+
+Climalysis can be accessed either directly from the GitHub repository or through the Python package.
+
+### GitHub Repository
 
 First, clone the repository:
 
@@ -49,6 +51,14 @@ python setup.py install
 ```
 
 Ensure you have Python 3.x installed on your system before installation.
+
+### Installing Python Package
+
+You can also install Climalysis directly as a Python package:
+
+```shell
+pip install climalysis
+```
 
 ## Dependencies
 
