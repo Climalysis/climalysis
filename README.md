@@ -2,9 +2,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/jake-casselman/climalysis/blob/main/LICENSE) [![codebeat badge](https://codebeat.co/badges/1e41f852-36fb-456c-a4ac-27812db8082c)](https://codebeat.co/projects/github-com-climalysis-climalysis-main) ![PyPI](https://img.shields.io/pypi/v/climalysis.svg) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8105734.svg)](https://doi.org/10.5281/zenodo.8105734)
 
 
-
-
 Developed by an assortment of active and past climate researchers, Climalysis is more than just a project – it's your one-stop platform for comprehensive climate impact studies. 
+
+**Project Lead:** Jake Casselman (GitHub username: @jake-casselman)
 
 **Our Mission:**
 
@@ -84,7 +84,7 @@ This project is licensed under the terms of the GNU General Public License. See 
 
 ## Contact
 
-If you have any questions, feel free to reach out to us.
+If you have any questions, feel free to reach out to us. For major decisions, please consult with our project lead, Jake Casselman (jake.w.casselman@gmail.com).
 
 ## Acknowledgments
 
