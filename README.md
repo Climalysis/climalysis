@@ -94,7 +94,7 @@ We would like to express our gratitude to all contributors and users of Climalys
 
 Climalysis is grateful for the support of the following organizations:
 
-- **ClimaLinks:** Supported the development of our data initial infrastructure and mission statement
+- [**ClimaLinks**](https://www.climalinks.com): Supported the development of our initial infrastructure and mission statement.
 
 The financial and resource support from these organizations has greatly assisted the development of Climalysis. However, their involvement does not influence the direction, findings, or publications of the project. 
 
