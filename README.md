@@ -25,10 +25,13 @@ Whether you're a climate scientist seeking advanced research tools, a data enthu
 1. [Installation](#installation)
 2. [Dependencies](#dependencies)
 3. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
-8. [Acknowledgments](#acknowledgments)
+4. [Contributing](#contributing)
+5. [License](#license)
+6. [Contact](#contact)
+7. [Acknowledgments](#acknowledgments)
+8. [Supporters](#supporters)
+9. [Conflict of Interest](#conflict-of-interest)
+
 
 ## Installation
 
