@@ -13,7 +13,7 @@ LONG_DESCRIPTION = 'A package that allows researchers, analysts, and climate ent
 
 # Setting up
 setup(
-    name="Climalysis",
+    name="climalysis",
     version=VERSION,
     author="Jake Casselman",
     author_email="<jake.w.casselman@gmail.com",
