@@ -13,18 +13,21 @@ LONG_DESCRIPTION = 'A package that allows researchers, analysts, and climate ent
 
 # Setting up
 setup(
-    name="climalysis",
+    name="Climalysis",
     version=VERSION,
     author="Jake Casselman",
-    author_email="<jake.casselman@climalinks.com",
+    author_email="<jake.w.casselman@gmail.com",
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
     install_requires=[
-        'numpy',
-        'pandas',
-        'matplotlib',
+        'numpy==1.23.5',
+        'scikit_learn==1.2.1',
+        'scipy==1.9.3',
+        'setuptools==67.8.0',
+        'statsmodels==0.13.5',
+        'xarray==2023.3.0'
     ],
     keywords=['python', 'climate', 'analysis', 'climate analysis', 'climate data', 'impact analysis'],
     classifiers=[
