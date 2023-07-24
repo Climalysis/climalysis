@@ -40,7 +40,7 @@ Climalysis can be accessed either directly from the GitHub repository or through
 First, clone the repository:
 
 ```shell
-git clone https://github.com/jake-casselman/climalysis.git
+git clone https://github.com/Climalysis/climalysis.git
 ```
 
 Next, navigate to the cloned repository and install the package:
@@ -50,7 +50,7 @@ cd climalysis
 python setup.py install
 ```
 
-Ensure you have Python 3.x installed on your system before installation.
+Ensure you have Python 3.7 or higher installed on your system before installation.
 
 ### Installing Python Package
 
