@@ -8,7 +8,6 @@ Developed by an assortment of active and past climate researchers, Climalysis is
 
 **Our Mission:**
 
-We aim to:
 Climalysis seeks to propel climate research forward by democratizing access to advanced analytical tools. Our primary mission is to provide a robust, open-source platform that encourages both established researchers and novice enthusiasts to run their own analyses, fostering innovation and reproducibility in climate studies. We aim to minimize redundant efforts in code creation, enabling our users to focus on fresh discoveries and insights. Through building a collaborative community, we aspire to continually identify and open-source new tools, accelerating the pace of climate research and enriching the understanding of our world's climate.
 
 **What We Offer:**
