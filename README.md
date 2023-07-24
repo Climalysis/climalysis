@@ -89,3 +89,15 @@ If you have any questions, feel free to reach out to us. For major decisions, pl
 ## Acknowledgments
 
 We would like to express our gratitude to all contributors and users of Climalysis. Your support is greatly appreciated.
+
+## Supporters
+
+Climalysis is grateful for the support of the following organizations:
+
+- **ClimaLinks:** Supported the development of our data initial infrastructure and mission statement
+
+The financial and resource support from these organizations has greatly assisted the development of Climalysis. However, their involvement does not influence the direction, findings, or publications of the project. 
+
+## Conflict of Interest
+
+We declare that there is no conflict of interest. The direction and goals of Climalysis are determined solely by the project team, independent of any external organizations.
