@@ -1,3 +1,5 @@
 ===============================================
-Climalysis statistical analysis of climate data
+Statistical Methods
 ===============================================
+
+Stay tuned...
