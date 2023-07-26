@@ -1,0 +1,7 @@
+site_name: climalysis
+
+nav:
+    - Home: index.md
+    - About: about.md
+
+theme: readthedocs
