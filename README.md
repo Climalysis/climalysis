@@ -88,7 +88,7 @@ You can now access the functions/classes in these modules.
 
 ## Contributing
 
-We warmly welcome contributions! Please see [here](CONTRIBUTING.md) for details on how to contribute. Have a look at the discussions if you need ideas for where to contribute.
+We warmly welcome contributions! Please see [here](CONTRIBUTING.md) for details on how to contribute. Have a look at the discussions if you need any ideas for where to contribute.
 
 ## License
 
