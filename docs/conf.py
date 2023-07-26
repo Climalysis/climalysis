@@ -2,7 +2,6 @@
 project = u'Climalysis'
 version = '0.0.1'
 
-html_theme = 'alabaster'
 html_theme_options = {
     'logo': '/images/climalysis_logo.png',
     'github_user': 'jake-casselman',
