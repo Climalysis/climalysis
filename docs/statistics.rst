@@ -1,1 +1,3 @@
-.. autofunction:: climalysis.stats.linearDetrend
+===============================================
+Climalysis statistical analysis of climate data
+===============================================
