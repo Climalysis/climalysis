@@ -1,0 +1,1 @@
+.. autofunction:: climalysis.stats.linearDetrend

@@ -109,3 +109,10 @@ Conflict of Interest
 --------------------
 
 We declare that there is no conflict of interest. The direction and goals of Climalysis are determined solely by the project team, independent of any external organizations.
+
+.. toctree::
+   :maxdepth: 2
+
+   intro
+   setup
+   statistics
