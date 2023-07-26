@@ -1,3 +1,3 @@
 extensions = [
-    'myst_parser',  # Add this line
+    'myst_parser'
 ]
