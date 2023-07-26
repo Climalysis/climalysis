@@ -4,9 +4,8 @@ Climalysis: Your Toolkit for Climate Impact Analysis ☁️🌞
 
 - `License: GPL v3 <https://github.com/jake-casselman/climalysis/blob/main/LICENSE>`_
 - `codebeat badge <https://codebeat.co/projects/github-com-climalysis-climalysis-main>`_
-- `PyPI <https://img.shields.io/pypi/v/climalysis.svg>`_
+- `PyPI <https://pypi.org/project/climalysis/>`_
 - `DOI <https://doi.org/10.5281/zenodo.8105734>`_
-- `Documentation Status <https://climalysis.readthedocs.io/en/latest/?badge=latest>`_
 
 Developed by an assortment of active and past climate researchers, Climalysis is more than just a project – it's your one-stop platform for comprehensive climate impact analysis tools. 
 
