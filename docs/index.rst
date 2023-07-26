@@ -1,5 +1,5 @@
 ===============================================
-Climalysis: Your Toolkit for Climate Impact Analysis ☁️🌞
+Climalysis
 ===============================================
 
 - `License: GPL v3 <https://github.com/jake-casselman/climalysis/blob/main/LICENSE>`_
@@ -24,18 +24,6 @@ Dive into our code, explore complex climate data, learn with us, and contribute 
 ---
 Whether you're a climate scientist seeking advanced research tools, a data enthusiast, or simply curious about climate impacts, Climalysis invites you to join us. Explore, learn, contribute, and together, let's deepen our understanding of the world's climate and drive towards a sustainable future.
 
-Table of Contents
------------------
-
-1. `Installation <#installation>`_
-2. `Dependencies <#dependencies>`_
-3. `Usage <#usage>`_
-4. `Contributing <#contributing>`_
-5. `License <#license>`_
-6. `Contact <#contact>`_
-7. `Acknowledgments <#acknowledgments>`_
-8. `Supporters <#supporters>`_
-9. `Conflict of Interest <#conflict-of-interest>`_
 
 Installation
 ------------
