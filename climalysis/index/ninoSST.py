@@ -10,25 +10,27 @@ class NinoSSTLoader:
 
     Attributes
     ----------
-    file_name : str
-        The .nc file from which to load data.
+    file_name_and_path : str
+        The directory path and file name of the SST data file.
     region : str
         The Nino region for which to load data ('1+2', '3', '3.4', '4', 'ONI', 'TNI').
     start_time : str, optional
         The start of the time slice. Defaults to '1959-01'.
     end_time : str, optional
         The end of the time slice. Defaults to '2022-12'.
-    lat_range : tuple
-        The latitude range for the specified Nino region.
-    lon_range : tuple
-        The longitude range for the specified Nino region.
+    step : int
+        The length of the time window (in months) for computing the centered running average. 
+        For odd-sized windows, the computed average is placed at the exact center of the window. 
+        For even-sized windows, the average is positioned to the right of the center. 
+        For example, with a 3-month window, the average of January, February, and March is placed in 
+        February; with a 2-month window, the average of January and February is placed in February.
 
     Methods
     -------
     load_and_process_data():
         Loads the SST data from the .nc file, processes it for the specified Nino region, and returns the processed data as an xarray DataArray.
     """
-    def __init__(self, file_name, region, start_time='1959-01', end_time='2022-12', step=1):
+    def __init__(self, file_name_and_path, region, start_time='1959-01', end_time='2022-12', step=1):
         """
         Initialize NinoSSTLoader with file name, region, time parameters, and step size.
 
@@ -36,7 +38,7 @@ class NinoSSTLoader:
         ...
         step (int, optional): The length of the time window (in months) for computing the running average. Defaults to 1.
         """
-        self.file_name = file_name
+        self.file_name = file_name_and_path
         self.region = region
         self.start_time = start_time
         self.end_time = end_time
@@ -91,5 +93,5 @@ class NinoSSTLoader:
             var_nino_4 = var_nino_4.mean(dim=['lon', 'lat'])
             var_nino = var_nino_12 - var_nino_4
         step = 3 if self.region == 'ONI' else self.step
-        var_nino = var_nino.rolling(time=step).mean()
+        var_nino = var_nino.rolling(time=step, center=True).mean()
         return var_nino

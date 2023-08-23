@@ -34,17 +34,17 @@ def moving_average(a, n=3, fill='filled', position=0, func=np.mean):
         or the combination of 'n' and 'position' would exceed the size of the input array when 'fill' is 'filled'.
     """
     if not isinstance(a, np.ndarray) or a.ndim != 1:
-        raise ValueError("Input 'a' must be a 1-dimensional numpy array.")
+        raise ValueError("Input must be a 1-dimensional numpy array.")
     if np.isnan(a).any():
-        raise ValueError("Input array 'a' should not contain NaN values.")
+        raise ValueError("Input array should not contain NaN values.")
     if np.isinf(a).any():
-        raise ValueError("Input array 'a' should not contain infinity values.")
+        raise ValueError("Input array should not contain infinity values.")
     if len(a) == 0:
-        raise ValueError("Input array 'a' should not be empty.")
+        raise ValueError("Input array should not be empty.")
     if not isinstance(n, int) or n <= 0 or n > len(a):
-        raise ValueError("Window size 'n' must be a positive integer and cannot exceed the size of the input array.")
+        raise ValueError("Window size must be a positive integer and cannot exceed the size of the input array.")
     if not isinstance(position, int) or position < 0 or position >= len(a):
-        raise ValueError("Position 'position' must be a non-negative integer and cannot exceed the size of the input array.")
+        raise ValueError("Position must be a non-negative integer and cannot exceed the size of the input array.")
     if fill not in ['filled', 'unfilled']:
         raise ValueError("Invalid value for 'fill'. Must be 'filled' or 'unfilled'.")
     if fill == 'filled' and position + n > len(a):
