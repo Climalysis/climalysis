@@ -102,13 +102,6 @@ If you have any questions, feel free to reach out to us. For major decisions, pl
 
 We would like to express our gratitude to all contributors and users of Climalysis. Your support is greatly appreciated.
 
-## Supporters
-
-Climalysis is grateful for the support of the following organizations:
-
-- [**ClimaLinks**](https://www.climalinks.com): Supported the development of our initial infrastructure and mission statement.
-
-The financial and resource support from these organizations has greatly assisted the development of Climalysis. However, their involvement does not influence the direction, findings, or publications of the project. 
 
 ## Conflict of Interest
 
