@@ -1,13 +1,14 @@
 [build-system]
 requires = [
   "setuptools>=70",
-  "wheel>=0.40.0"
+  "wheel>=0.40.0", 
+  "setuptools-scm"
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "climalysis"
-version = "0.1.1"
+dynamic = ["version"]
 description = "A comprehensive toolkit for climate impact analysis."
 readme = "README.md"
 requires-python = ">=3.7"
@@ -50,3 +51,7 @@ Documentation = "https://climalysis.readthedocs.io/en/latest/"
 
 [tool.setuptools]
 packages = ["climalysis"]
+
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "node-and-date"
