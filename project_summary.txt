@@ -1,0 +1,898 @@
+
+==== 📚 docs/ Tree ====
+
+📁 _build
+📁 _build/html
+📄 _build/html/.buildinfo
+📁 _build/html/.doctrees
+📄 _build/html/.doctrees/about.doctree
+📄 _build/html/.doctrees/environment.pickle
+📄 _build/html/.doctrees/index.doctree
+📄 _build/html/.doctrees/installation.doctree
+📄 _build/html/.doctrees/usage.doctree
+📁 _build/html/_sources
+📄 _build/html/_sources/about.rst.txt
+📄 _build/html/_sources/index.rst.txt
+📄 _build/html/_sources/installation.rst.txt
+📄 _build/html/_sources/usage.rst.txt
+📁 _build/html/_static
+📄 _build/html/_static/alabaster.css
+📄 _build/html/_static/basic.css
+📄 _build/html/_static/custom.css
+📄 _build/html/_static/doctools.js
+📄 _build/html/_static/documentation_options.js
+📄 _build/html/_static/file.png
+📄 _build/html/_static/github-banner.svg
+📄 _build/html/_static/language_data.js
+📄 _build/html/_static/minus.png
+📄 _build/html/_static/plus.png
+📄 _build/html/_static/pygments.css
+📄 _build/html/_static/searchtools.js
+📄 _build/html/_static/sphinx_highlight.js
+📄 _build/html/about.html
+📄 _build/html/genindex.html
+📄 _build/html/index.html
+📄 _build/html/installation.html
+📄 _build/html/objects.inv
+📄 _build/html/search.html
+📄 _build/html/searchindex.js
+📄 _build/html/usage.html
+📄 about.rst
+📄 conf.py
+📄 index.rst
+📄 installation.rst
+📄 usage.rst
+
+==== 🔍 Full Contents of .rst Files in docs/ ====
+
+📄 /Users/jakecasselman/climalysis/docs/index.rst:
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   about
+   installation
+   usage
+   contributing
+   contact
+   acknowledgements
+
+
+📄 /Users/jakecasselman/climalysis/docs/usage.rst:
+===============================================
+Usage
+===============================================
+After installation, you can import and use our package in your Python scripts::
+
+    from climalysis import module1, module2
+
+You can now access the functions/classes in these modules.
+
+Contributing
+------------
+
+We warmly welcome contributions! Please see `here <CONTRIBUTING.md>`_ for details on how to contribute. Have a look at the discussions if you need any ideas for where to contribute.
+
+License
+-------
+
+This project is licensed under the terms of the GNU General Public License. See `LICENSE <LICENSE>`_ for more details.
+
+Contact
+-------
+
+If you have any questions, feel free to reach out to us. For major decisions, please consult with our project lead, Jake Casselman (jake.w.casselman@gmail.com).
+
+Acknowledgments
+---------------
+
+We would like to express our gratitude to all contributors and users of Climalysis. Your support is greatly appreciated.
+
+Supporters
+----------
+
+Climalysis is grateful for the support of the following organizations:
+
+- `ClimaLinks <https://www.climalinks.com>`_: Supported the development of our initial infrastructure and mission statement.
+
+The financial and resource support from these organizations has greatly assisted the development of Climalysis. However, their involvement does not influence the direction, findings, or publications of the project. 
+
+Conflict of Interest
+--------------------
+
+We declare that there is no conflict of interest. The direction and goals of Climalysis are determined solely by the project team, independent of any external organizations.
+
+📄 /Users/jakecasselman/climalysis/docs/installation.rst:
+===============================================
+Installation
+===============================================
+
+Climalysis can be accessed either directly from the GitHub repository or through the Python package.
+
+GitHub Repository
+-----------------
+
+First, clone the repository::
+
+    git clone https://github.com/Climalysis/climalysis.git
+
+Next, navigate to the cloned repository and install the package::
+
+    cd climalysis
+    python setup.py install
+
+Ensure you have Python 3.7 or higher installed on your system before installation.
+
+Installing Python Package
+-------------------------
+
+You can also install Climalysis directly as a Python package::
+
+    pip install climalysis
+
+Dependencies
+------------
+
+Climalysis requires the following Python packages:
+
+- numpy==1.23.5
+- scikit_learn==1.2.1
+- scipy==1.9.3
+- setuptools==67.8.0
+- statsmodels==0.13.5
+- xarray==2023.3.0
+
+These packages can be installed using pip by running the following command in your terminal::
+
+    pip install -r requirements.txt
+
+
+📄 /Users/jakecasselman/climalysis/docs/about.rst:
+Climalysis
+==========
+
+**Advanced Climate Impact Analysis — Accessible to All**
+
+Climalysis is your go-to Python toolkit for analyzing climate data, built by and for climate researchers. It empowers users to perform powerful, reproducible analysis on climate impacts with ease — from simple index calculation to in-depth signal processing.
+
+---
+
+📦 Installation
+---------------
+
+Install Climalysis directly from PyPI:
+
+.. code-block:: bash
+
+    pip install climalysis
+
+Or, for the latest development version:
+
+.. code-block:: bash
+
+    git clone https://github.com/Climalysis/climalysis.git
+    cd climalysis
+    pip install .
+
+Requirements:
+
+- Python >= 3.7
+- numpy, scikit-learn, scipy, statsmodels, xarray
+
+---
+
+🚀 Quickstart
+--------------
+
+.. code-block:: python
+
+    from climalysis.index import ninoSST
+    from climalysis.stats import movingAverage
+
+    # Compute Niño SST anomaly
+    sst_anomaly = ninoSST.compute_index(ds)
+
+    # Apply a moving average filter
+    smooth = movingAverage.run(sst_anomaly, window=5)
+
+---
+
+🎯 What Climalysis Offers
+-------------------------
+
+- 🔍 **Indices**: Ready-to-use implementations of ENSO-related and climate variability indices.
+- 📈 **Statistical Tools**: Detrending, filtering, lowess analysis, and more.
+- 🌍 **Utilities**: Latitude/longitude normalization, spatial slicing, and pre-processing helpers.
+- 🤝 **Reproducibility**: Built with transparency and collaboration in mind.
+
+---
+
+🌐 Project Links
+----------------
+
+- **Homepage**: https://github.com/Climalysis/climalysis
+- **Documentation**: https://climalysis.readthedocs.io
+- **PyPI**: https://pypi.org/project/climalysis/
+- **DOI**: https://doi.org/10.5281/zenodo.8105734
+
+---
+
+🤝 Contributing
+---------------
+
+We welcome contributions! If you're interested in helping improve Climalysis, check out:
+
+- `Contributing Guide <https://github.com/Climalysis/climalysis/blob/main/CONTRIBUTING.md>`_
+- Open `Discussions <https://github.com/Climalysis/climalysis/discussions>`_
+
+Please reach out to **Jake Casselman** (project lead) if you'd like to coordinate on a major addition.
+
+---
+
+🔖 License
+----------
+
+Climalysis is released under the **GNU General Public License v3.0**.
+See `LICENSE <https://github.com/Climalysis/climalysis/blob/main/LICENSE>`_ for more information.
+
+---
+
+📚 Contents
+-----------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Documentation
+
+   about
+   installation
+   usage
+   contributing
+   contact
+   acknowledgements
+
+
+==== 🌱 climalysis/ Tree ====
+
+📄 __init__.py
+📄 __init__.pyc
+📁 __pycache__
+📄 __pycache__/__init__.cpython-311.pyc
+📁 index
+📄 index/__init__.py
+📄 index/__init__.pyc
+📁 index/__pycache__
+📄 index/__pycache__/__init__.cpython-311.pyc
+📄 index/__pycache__/ninoSST.cpython-311.pyc
+📄 index/ninoSST.py
+📁 stats
+📄 stats/__init__.py
+📁 stats/__pycache__
+📄 stats/__pycache__/__init__.cpython-311.pyc
+📄 stats/__pycache__/fisherTransform.cpython-311.pyc
+📄 stats/__pycache__/linearDetrend.cpython-311.pyc
+📄 stats/__pycache__/lowessAnalysis.cpython-311.pyc
+📄 stats/fisherTransform.py
+📄 stats/linearDetrend.py
+📄 stats/lowessAnalysis.py
+📄 stats/movingAverage.py
+📁 utils
+📄 utils/__init__.py
+📄 utils/normalizeLongitudes.py
+
+==== 🧠 Full Contents of Python Files in climalysis/ ====
+
+📄 /Users/jakecasselman/climalysis/climalysis/__init__.py:
+from .index.ninoSST import NinoSSTLoader
+from .stats.fisherTransform import FisherTransform
+from .stats.linearDetrend import detrend
+from .stats.lowessAnalysis import lowessAnalysis
+from .stats.movingAverage import moving_average
+from .utils.normalizeLongitudes import normalize_longitudes
+
+# Aliases for clean naming
+nino_index = NinoSSTLoader
+fisher = FisherTransform
+remove_trend = detrend
+lowess = lowessAnalysis
+rolling_average = moving_average
+
+__all__ = [
+    "nino_index",
+    "fisher",
+    "remove_trend",
+    "lowess",
+    "rolling_average",
+    "normalize_longitudes",
+]
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/utils/__init__.py:
+# climalysis/utils/__init__.py
+
+from .normalizeLongitudes import normalize_longitudes
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/utils/normalizeLongitudes.py:
+# climalysis/utils/geo.py
+
+import numpy as np
+import xarray as xr
+from collections.abc import Iterable
+import warnings
+
+def normalize_longitudes(lon_values, to="[-180,180]"):
+    """
+    Normalize longitude values or bounds to a specified range.
+
+    Parameters
+    ----------
+    lon_values : tuple, list, np.ndarray, or xarray.DataArray
+        Input longitude(s) to normalize. Can be:
+        - A tuple/list of (min, max)
+        - A 1D or multi-dimensional array
+        - An xarray.DataArray
+
+    to : str, optional
+        Target range for normalization. Must be one of:
+        - "[-180,180]" (default)
+        - "[0,360]"
+
+    Returns
+    -------
+    Same type as input (tuple, list, np.ndarray, xarray.DataArray)
+        Longitude(s) normalized to the desired range.
+        If input is a tuple or list of length 2, the result is ordered (min, max).
+
+    Raises
+    ------
+    ValueError
+        If 'to' is not a supported normalization range.
+    TypeError
+        If input type is not supported.
+    """
+    if to not in ["[-180,180]", "[0,360]"]:
+        raise ValueError("Supported 'to' values are '[-180,180]' or '[0,360]'.")
+
+    def normalize(val):
+        if to == "[-180,180]":
+            return ((val + 180) % 360) - 180
+        else:
+            return val % 360
+
+    # Handle tuple/list input (e.g., bounds)
+    if isinstance(lon_values, (tuple, list)):
+        normalized = [normalize(lon) for lon in lon_values]
+
+        # If it's a 2-element tuple/list, treat as bounds and enforce (min, max) order
+        if len(normalized) == 2:
+            lo, hi = normalized
+            if lo > hi:
+                warnings.warn(
+                    f"Longitude bounds reversed to maintain min < max: ({lo}, {hi})",
+                    stacklevel=2
+                )
+                lo, hi = hi, lo
+            return type(lon_values)((lo, hi))
+
+        return type(lon_values)(normalized)
+
+    # Handle arrays or DataArrays
+    if isinstance(lon_values, (np.ndarray, xr.DataArray)):
+        return normalize(lon_values)
+
+    raise TypeError(
+        f"Unsupported input type: {type(lon_values)}. "
+        "Expected tuple, list, numpy.ndarray, or xarray.DataArray."
+    )
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/index/ninoSST.py:
+import xarray as xr
+from climalysis.utils import normalize_longitudes
+
+class NinoSSTLoader:
+    """
+    This class facilitates loading and processing of sea surface temperature (SST) data for different Nino regions, including the computation of Trans-Niño Index (TNI). The Nino regions supported are 1+2, 3, 3.4, 4, ONI, and TNI.
+
+    Upon instantiation, the user provides the path to the SST data file, the desired Nino region, and optionally the start and end times for the period of interest.
+
+    The SST data is loaded from a .nc file using the xarray library. It is then processed according to the latitudes and longitudes corresponding to the specified Nino region.
+
+    Attributes
+    ----------
+    file_name_and_path : str
+        The directory path and file name of the SST data file.
+    region : str
+        The Nino region for which to load data ('1+2', '3', '3.4', '4', 'ONI', 'TNI').
+    start_time : str, optional
+        The start of the time slice. Defaults to '1959-01'.
+    end_time : str, optional
+        The end of the time slice. Defaults to '2022-12'.
+    step : int
+        The length of the time window (in months) for computing the centered running average. 
+        For odd-sized windows, the computed average is placed at the exact center of the window. 
+        For even-sized windows, the average is positioned to the right of the center. 
+        For example, with a 3-month window, the average of January, February, and March is placed in 
+        February; with a 2-month window, the average of January and February is placed in February.
+
+    Methods
+    -------
+    load_and_process_data():
+        Loads the SST data from the .nc file, processes it for the specified Nino region, and returns the processed data as an xarray DataArray.
+    
+    Index Breakdown
+    -------------
+    The Nino regions are defined as follows:
+    - Niño 1+2: 10°S–0°, 90°W–80°W
+    - Niño 3: 5°N-5°S, 150°W-90°W
+    - Niño 3.4: 5°N-5°S, 170°W-120°W
+    - Niño 4: 5°N-5°S, 160°E-150°W
+    - ONI: Same as Niño 3.4, used for Oceanic Niño Index
+    - TNI: Computed as the difference in normalized SST anomalies between Niño 1+2 and Niño 4 regions.
+    - Custom: Placeholder for user-defined regions.
+
+    References
+    ----------
+    - Trenberth, K. E., & Stepaniak, D. P. (2001). Indices of El Niño Evolution. Journal of Climate, 14(8), 1697–1701.
+    - NOAA Climate Prediction Center: https://www.cpc.ncep.noaa.gov/
+    """
+
+    def __init__(self, file_name_and_path, region, start_time='1959-01', end_time='2022-12', step=1, custom_lat_range=None, custom_lon_range=None):
+        """
+        Initialize NinoSSTLoader with file name, region, time parameters, and step size.
+
+        Parameters:
+        ...
+        step (int, optional): The length of the time window (in months) for computing the running average. Defaults to 1.
+        """
+        self.file_name = file_name_and_path
+        self.region = region
+        self.start_time = start_time
+        self.end_time = end_time
+        self.step = step
+        self.region_dict = {
+            '1+2': ((-10, 0), normalize_longitudes((270, 280))),
+            '3': ((-5, 5), normalize_longitudes((210, 270))),
+            '3.4': ((-5, 5), normalize_longitudes((190, 240))),
+            '4': ((-5, 5), normalize_longitudes((200, 210))),
+            'ONI': ((-5, 5), normalize_longitudes((190, 240))),
+            'TNI': None,
+            'Custom': (custom_lat_range, normalize_longitudes(custom_lon_range) if custom_lon_range else None)
+        }
+        self.lat_range, self.lon_range = self.region_dict[region] if self.region != 'TNI' else (None, None)
+
+        # Validate the information provided
+        if not isinstance(file_name_and_path, str):
+            raise ValueError("File name and path must be a string.")
+        if not isinstance(region, str):
+            raise ValueError("Region must be a string.")
+        if not isinstance(start_time, str):
+            raise ValueError("Start time must be a string.")
+        if not isinstance(end_time, str):
+            raise ValueError("End time must be a string.")
+        if not isinstance(step, int):
+            raise ValueError("Step must be an integer.")
+        if step < 1:
+            raise ValueError("Step must be a positive integer.")
+        if not (start_time <= end_time):
+            raise ValueError("Start time must be less than or equal to end time.")
+        if region not in self.region_dict:
+            raise ValueError("Unsupported region. Supported regions are '1+2', '3', '3.4', '4', 'ONI', 'TNI'.")
+        # Check if the file exists
+        try:
+            with open(file_name_and_path, 'r') as f:
+                pass
+        except FileNotFoundError:
+            raise FileNotFoundError(f"The file {file_name_and_path} does not exist.")
+        # Check if the file is a .nc file
+        if not file_name_and_path.endswith('.nc'):
+            raise ValueError("The file must be a .nc file.")
+        
+        # Checks for custom lat/lon ranges
+        if self.region == 'Custom':
+            if self.lat_range is None or self.lon_range is None:
+                raise ValueError("For 'Custom' region, you must provide both 'custom_lat_range' and 'custom_lon_range'. These should be tuples of (min, max).")
+            if len(self.lat_range) != 2 or len(self.lon_range) != 2:
+                raise ValueError("Latitude and longitude ranges must be tuples of length 2: (min, max).")
+            if self.lat_range[0] < -90 or self.lat_range[1] > 90:
+                raise ValueError("Latitude values must be between -90 and 90.")
+            if self.lat_range[0] >= self.lat_range[1]:
+                raise ValueError("Latitude range is invalid. The first value must be less than the second.")
+            if self.lon_range[0] >= self.lon_range[1]:
+                raise ValueError("Longitude range is invalid. The first value must be less than the second.")
+
+    def load_and_process_data(self):
+        """
+        Loads the SST data from the .nc file, processes it for the specified Nino region, and applies a running average over the defined step size. If the region is 'ONI', the step size is forced to 3 months, regardless of the user-specified step size.
+
+        Returns:
+        var_nino (xarray.DataArray): The processed SST data for the specified Nino region.
+        """
+        # Load the SST data
+        var_sst = xr.open_dataset(self.file_name)
+        var_sst = var_sst.sel(time=slice(self.start_time, self.end_time))
+        
+        # Normalize longitudes to [-180, 180] if necessary
+        var_sst['lon'] = normalize_longitudes(var_sst.lon)
+        
+        if self.region != 'TNI':
+            var_nino = var_sst.sst.where(
+                (var_sst.lat <= self.lat_range[1]) & 
+                (var_sst.lat >= self.lat_range[0]) & 
+                (var_sst.lon <= self.lon_range[1]) & 
+                (var_sst.lon >= self.lon_range[0]), drop=True
+            )
+            var_nino = var_nino.mean(dim=['lon', 'lat'])
+        else:
+            # For TNI, compute the difference in normalized SST anomalies between the Niño 1+2 and Niño 4 regions.
+            lat_range_12, lon_range_12 = self.region_dict['1+2']
+            lat_range_4, lon_range_4 = self.region_dict['4']
+            var_nino_12 = var_sst.sst.where(
+                (var_sst.lat <= lat_range_12[1]) & 
+                (var_sst.lat >= lat_range_12[0]) & 
+                (var_sst.lon <= lon_range_12[1]) & 
+                (var_sst.lon >= lon_range_12[0]), drop=True
+            )
+            var_nino_12 = var_nino_12.mean(dim=['lon', 'lat'])
+            var_nino_4 = var_sst.sst.where(
+                (var_sst.lat <= lat_range_4[1]) & 
+                (var_sst.lat >= lat_range_4[0]) & 
+                (var_sst.lon <= lon_range_4[1]) & 
+                (var_sst.lon >= lon_range_4[0]), drop=True
+            )
+            var_nino_4 = var_nino_4.mean(dim=['lon', 'lat'])
+            var_nino = var_nino_12 - var_nino_4
+        step = 3 if self.region == 'ONI' else self.step
+        var_nino = var_nino.rolling(time=step, center=True).mean()
+        return var_nino
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/index/__init__.py:
+# climalysis/index/__init__.py
+
+from .ninoSST import NinoSSTLoader
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/stats/fisherTransform.py:
+#fisherTransform.py
+import numpy as np
+import math
+
+class FisherTransform:
+    """
+    A class used to perform Fisher's Z-Transformation on correlation coefficients.
+
+    Methods
+    -------
+    r_to_Z(r)
+        Converts a correlation coefficient to a Fisher Z score.
+    Fishers_z_Transform(z1, z2, n1, n2)
+        Applies Fisher's Z-Transformation to two Z scores with their corresponding sample sizes.
+    standardError_z(n)
+        Calculates the standard error of a Z score.
+    Fishers_confidence_interval(r, n, confidence)
+        Calculates the confidence interval for a correlation coefficient.
+        
+    References
+    ----------
+    Devore, J. L.: Probability and Statistics for Engineering and the Sciences, 
+    Biometrics, 47, 1638–1638, https://doi.org/10.2307/2532427, 1991.
+
+    Simpson, I. R. and Polvani, L. M.: Revisiting the relationship between jet 
+    position, forced response, and annular mode variability in the southern midlatitudes, 
+    Geophys. Res. Lett., 43, 2896–2903, https://doi.org/10.1002/2016GL067989, 2016.
+
+    Casselman, J. W., Jiménez-Esteve, B., and Domeisen, D. I. V.: Modulation of the El Niño 
+    teleconnection to the North Atlantic by the tropical North Atlantic during boreal spring and summer, 
+    Weather Clim. Dynam., 3, 1077–1096, https://doi.org/10.5194/wcd-3-1077-2022, 2022.
+    """
+
+    def r_to_Z(self, r):
+        """
+        Converts a correlation coefficient to a Fisher Z score.
+        """
+        if not isinstance(r, (int, float)) or r <= -1 or r >= 1:
+            raise ValueError("Input 'r' must be a number in the range -1 < r < 1.")
+        Z = 0.5 * (np.log(1 + r) - np.log(1 - r))
+        return Z
+
+    def Fishers_z_Transform(self, z1, z2, n1, n2):
+        """
+        Applies Fisher's Z-Transformation to two Z scores with their corresponding sample sizes.
+        """
+        if not all(isinstance(z, (int, float)) for z in [z1, z2]) or not all(isinstance(n, int) and n > 3 for n in [n1, n2]):
+            raise ValueError("Inputs 'z1' and 'z2' must be numbers, and 'n1' and 'n2' must be integers greater than 3.")
+        z = (z1 - z2) / np.sqrt(1 / (n1 - 3) + 1 / (n2 - 3))
+        return z
+
+    def standardError_z(self, n):
+        """
+        Calculates the standard error of a Z score.
+        """
+        if not isinstance(n, int) or n <= 3:
+            raise ValueError("Input 'n' must be an integer greater than 3.")
+        stderr = 1 / np.sqrt(n - 3)
+        return stderr
+
+    def Fishers_confidence_interval(self, r, n, confidence=95):
+        """
+        Calculates the confidence interval for a correlation coefficient.
+        """
+        if not isinstance(r, (int, float)) or r <= -1 or r >= 1 or not isinstance(n, int) or n <= 3:
+            raise ValueError("Input 'r' must be a number in the range -1 < r < 1, and 'n' must be an integer greater than 3.")
+        cf_dict = {90: 1.645, 95: 1.960}
+        if confidence not in cf_dict:
+            raise ValueError("Unsupported confidence level. Supported levels are 90 and 95.")
+        cf = cf_dict[confidence]
+        Z = self.r_to_Z(r)
+        L = Z - cf / np.sqrt(n - 3)
+        U = Z + cf / np.sqrt(n - 3)
+        conf_lower = (np.exp(2 * L) - 1) / (np.exp(2 * L) + 1)
+        conf_upper = (np.exp(2 * U) - 1) / (np.exp(2 * U) + 1)
+        return (conf_lower, conf_upper)
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/stats/__init__.py:
+# climalysis/stats/__init__.py
+
+from .fisherTransform import FisherTransform
+from .linearDetrend import detrend
+from .lowessAnalysis import lowessAnalysis
+from .movingAverage import moving_average
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/stats/movingAverage.py:
+#movingAverage.py
+import numpy as np
+
+def moving_average(a, n=3, fill='filled', position=0, func=np.mean):
+    """
+    Calculate the moving average of a 1D array using a specified averaging function.
+
+    Parameters
+    ----------
+    a : ndarray
+        Input data as a 1-dimensional numpy array. Should not be empty or contain NaN or infinity values.
+    n : int, optional
+        Window size for the moving average. Defaults to 3. Must be a positive integer and cannot exceed the size of the input array.
+    fill : str, optional
+        Determines how the output array is filled.
+        - 'filled': The output array is filled with NaN values, and the moving average values are inserted at the specified position. (default)
+        - 'unfilled': The output array only contains the moving average values. The window size and position should not exceed the size of the input array.
+    position : int, optional
+        The position in the output array where the moving average values are inserted. Defaults to 0 (the first spot). Must be a non-negative integer and cannot exceed the size of the input array.
+    func : function, optional
+        The function used to calculate the average. Defaults to numpy.mean. 
+
+    Returns
+    -------
+    ndarray
+        Array with the moving average values inserted at the specified position (or at the beginning if fill='unfilled').
+
+    Raises
+    ------
+    ValueError
+        If the input 'a' is not a 1-dimensional numpy array, is empty, or contains NaN or infinity values,
+        or 'n' is not a positive integer or exceeds the size of the input array,
+        or 'position' is not a non-negative integer or exceeds the size of the input array,
+        or 'fill' is not 'filled' or 'unfilled',
+        or the combination of 'n' and 'position' would exceed the size of the input array when 'fill' is 'filled'.
+    """
+    if not isinstance(a, np.ndarray) or a.ndim != 1:
+        raise ValueError("Input must be a 1-dimensional numpy array.")
+    if np.isnan(a).any():
+        raise ValueError("Input array should not contain NaN values.")
+    if np.isinf(a).any():
+        raise ValueError("Input array should not contain infinity values.")
+    if len(a) == 0:
+        raise ValueError("Input array should not be empty.")
+    if not isinstance(n, int) or n <= 0 or n > len(a):
+        raise ValueError("Window size must be a positive integer and cannot exceed the size of the input array.")
+    if not isinstance(position, int) or position < 0 or position >= len(a):
+        raise ValueError("Position must be a non-negative integer and cannot exceed the size of the input array.")
+    if fill not in ['filled', 'unfilled']:
+        raise ValueError("Invalid value for 'fill'. Must be 'filled' or 'unfilled'.")
+    if fill == 'filled' and position + n > len(a):
+        raise ValueError("For 'filled' option, the combination of window size 'n' and position should not exceed the size of the input array.")
+
+    ret = np.cumsum(a, dtype=float)
+    ret[n:] = ret[n:] - ret[:-n]
+    var = ret[n - 1:] / n
+
+    if fill == 'unfilled':
+        return var
+
+    output = np.empty_like(a)
+    output.fill(np.nan)
+    output[position:position + n] = func(a[position:position + n])
+    return output
+
+
+📄 /Users/jakecasselman/climalysis/climalysis/stats/lowessAnalysis.py:
+#linearDetrend.py
+import numpy as np
+import scipy.interpolate
+import scipy.stats
+from sklearn.metrics import mean_squared_error
+from statsmodels.nonparametric.smoothers_lowess import lowess as sm_lowess
+import statsmodels.api as sm
+
+class lowessAnalysis:
+    """
+    This class contains methods for calculating lowess curves, bootstrapping and linear fitting.
+
+    Attributes
+    ----------
+    x : ndarray
+        1D numpy array of x values.
+    y : ndarray
+        1D numpy array of y values.
+    xgrid : ndarray
+        1D numpy array of evenly spaced numbers over the range of x values.
+    """
+
+    def __init__(self, x, y):
+        """
+        Constructs all the necessary attributes for the lowessAnalysis object.
+
+        Parameters
+        ----------
+        x : array-like
+            X-axis data.
+        y : array-like
+            Y-axis data.
+        """
+        try:
+            self.x = np.asarray(x)
+            self.y = np.asarray(y)
+        except TypeError:
+            raise ValueError("Inputs 'x' and 'y' must be list-like structures that can be converted to numpy arrays.")
+
+        if not isinstance(self.x, np.ndarray) or self.x.ndim != 1:
+            raise ValueError("Input 'x' must be a 1-dimensional array or list.")
+        if not isinstance(self.y, np.ndarray) or self.y.ndim != 1:
+            raise ValueError("Input 'y' must be a 1-dimensional array or list.")
+        if np.isnan(self.x).any() or np.isnan(self.y).any():
+            raise ValueError("Input data should not contain NaN values.")
+        if np.isinf(self.x).any() or np.isinf(self.y).any():
+            raise ValueError("Input data should not contain infinity values.")
+        if len(self.x) != len(self.y):
+            raise ValueError("Inputs 'x' and 'y' should have the same length.")
+
+        self.xgrid = np.linspace(self.x.min(), self.x.max())
+
+    def lowess_single(self):
+        """
+        Creates a single LOWESS (Locally Weighted Scatterplot Smoothing) curve using bootstrapped samples.
+
+        Returns
+        -------
+        ndarray
+            Interpolated y values for the LOWESS curve.
+        """
+        samples = np.random.choice(len(self.x), len(self.x), replace=True)
+        x_s = self.x[samples]
+        y_s = self.y[samples]
+        y_sm = sm_lowess(y_s, x_s, frac=1./5., it=5, return_sorted=False)
+        y_grid = scipy.interpolate.interp1d(x_s, y_sm, fill_value='extrapolate')(self.xgrid)
+        return y_grid
+
+    def lowess_bootstrap(self, K=1000):
+        """
+        Bootstrap method to calculate the mean and standard error of the LOWESS curves.
+
+        Parameters
+        ----------
+        K : int, optional
+            Number of bootstrap samples. Defaults to 1000.
+
+        Returns
+        -------
+        ndarray
+            Mean of the bootstrapped LOWESS curves.
+        ndarray
+            Standard error of the bootstrapped LOWESS curves.
+        """
+        if not isinstance(K, int) or K <= 0:
+            raise ValueError("Steps 'K' must be a positive integer.")
+        smooths = [self.lowess_single() for _ in range(K)]
+        smooths = np.array(smooths).T
+        mean = np.nanmean(smooths, axis=1)
+        stderr = scipy.stats.sem(smooths, axis=1)
+        stderr = np.nanstd(smooths, axis=1, ddof=0)
+        return mean, stderr
+
+    def return_lowess_boot(self, K=1000):
+        """
+        Returns the mean, standard error, and x values of the bootstrapped LOWESS curves.
+
+        Parameters
+        ----------
+        K : int, optional
+            Number of bootstrap samples. Defaults to 1000.
+
+        Returns
+        -------
+        tuple
+            Mean of the bootstrapped LOWESS curves.
+            Standard error of the bootstrapped LOWESS curves.
+            X values.
+        """
+        mean, stderr = self.lowess_bootstrap(K=K)
+        if len(mean) == 0 or len(stderr) == 0:
+            raise ValueError("Bootstrap result is empty.")
+        return mean, stderr, self.xgrid
+
+    def linearFit(self):
+        """
+        Performs linear regression on the x and y data, and calculates the root mean square error (RMSE) of the fit.
+
+        Returns
+        -------
+        tuple
+            X values.
+            Predicted y values from linear regression.
+            RMSE of the fit.
+        """
+        x_full = self.x.copy()
+        y_full = self.y.copy()
+        idx = np.isfinite(x_full) & np.isfinite(y_full)
+        x_full = x_full[idx].reshape(-1, 1)
+        y_full = y_full[idx].reshape(-1, 1)
+        #-------------------- Preform Analysis:--------------------------------------#
+        X2 = sm.add_constant(x_full)
+        model = sm.OLS(y_full, X2).fit()
+        ypred = model.predict(X2)
+        pvalues = model.pvalues[1]
+        RMSEstorage = np.sqrt(mean_squared_error(y_full, ypred))
+
+        return x_full,ypred,RMSEstorage
+
+📄 /Users/jakecasselman/climalysis/climalysis/stats/linearDetrend.py:
+#linearDetrend.py
+import numpy as np
+
+def detrend(data):
+    """
+    Detrend the data by fitting a polynomial and subtracting the trend.
+
+    Parameters
+    ----------
+    data : array_like
+        Input data as a 1-dimensional array or list. Should not be empty or contain NaN or infinity values.
+
+    Returns
+    -------
+    ndarray
+        Detrended data.
+
+    Raises
+    ------
+    ValueError
+        If the input 'data' is not a list-like structure, is empty, is not 1-dimensional,
+        contains NaN or infinity values, or has less than two elements (which is insufficient to fit a polynomial).
+    """
+    # Validation checks
+    try:
+        data = np.asarray(data)
+    except TypeError:
+        raise ValueError("Input 'data' must be a list-like structure that can be converted to a numpy array.")
+    if not isinstance(data, np.ndarray) or data.ndim != 1:
+        raise ValueError("Input 'data' must be a 1-dimensional array or list.")
+    if np.isnan(data).any():
+        raise ValueError("Input data should not contain NaN values.")
+    if np.isinf(data).any():
+        raise ValueError("Input data should not contain infinity values.")
+    if len(data) == 0:
+        raise ValueError("Input data should not be empty.")
+    if len(data) < 2:
+        raise ValueError("Input data should have at least two elements to fit a polynomial.")
+
+    # Polynomial fitting and detrending
+    x = np.arange(len(data))
+    z = np.polyfit(x, data, min(1, len(data) - 1))
+    yTrend = np.polyval(z, x)
+    dataDetrend = data - yTrend
+    return dataDetrend
+

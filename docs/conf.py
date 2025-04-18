@@ -1,22 +1,29 @@
-# General information about the project.
-project = u'Climalysis'
-version = '0.0.1'
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../climalysis'))
 
-html_theme_options = {
-    'logo': '/images/climalysis_logo.png',
-    'github_user': 'jake-casselman',
-    'github_repo': 'Climalysis/climalysis',
-    'github_button': True,
-    'github_banner': True,
-    'show_related': True,
-    'note_bg': '#FFF59C'
-}
+project = 'Climalysis'
+author = 'Jake Casselman'
+release = '0.1.3'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.todo',
+    'sphinx.ext.mathjax',
 ]
+
+templates_path = ['_templates']
+exclude_patterns = []
+
+html_theme = 'furo'
+html_static_path = ['_static']
+html_css_files = ['custom.css']
+html_title = "Climalysis Docs"
+html_logo = "_static/climalysis_logo.png"
+html_theme_options = {
+    "source_repository": "https://github.com/Climalysis/climalysis/",
+    "source_branch": "main",
+    "navigation_with_keys": True,
+}
