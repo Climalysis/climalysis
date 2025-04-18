@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: climalysis
-Version: 0.0.6
+Version: 0.1.1
 Summary: A comprehensive toolkit for climate impact analysis.
 Author-email: Jake Casselman <jake.w.casselman@gmail.com>
 License-Expression: GPL-3.0-or-later
@@ -15,11 +15,11 @@ Classifier: Programming Language :: Python :: 3
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: numpy==1.23.5
-Requires-Dist: scikit_learn==1.2.1
-Requires-Dist: scipy==1.9.3
-Requires-Dist: statsmodels==0.13.5
-Requires-Dist: xarray==2023.3.0
+Requires-Dist: numpy<2.3,>=1.26
+Requires-Dist: scikit_learn<1.5,>=1.2.1
+Requires-Dist: scipy<1.13,>=1.9.3
+Requires-Dist: statsmodels<0.15,>=0.13.5
+Requires-Dist: xarray<2024.0,>=2023.3.0
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"
 Requires-Dist: black; extra == "dev"

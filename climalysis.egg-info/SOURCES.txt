@@ -7,14 +7,4 @@ climalysis.egg-info/SOURCES.txt
 climalysis.egg-info/dependency_links.txt
 climalysis.egg-info/requires.txt
 climalysis.egg-info/top_level.txt
-climalysis/index/__init__.py
-climalysis/index/ninoSST.py
-climalysis/stats/__init__.py
-climalysis/stats/fisherTransform.py
-climalysis/stats/linearDetrend.py
-climalysis/stats/lowessAnalysis.py
-climalysis/stats/movingAverage.py
-climalysis/utils/__init__.py
-climalysis/utils/normalizeLongitudes.py
-tests/__init__.py
 tests/test_nino_index.py
