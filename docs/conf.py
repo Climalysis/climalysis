@@ -27,3 +27,10 @@ html_theme_options = {
     "source_branch": "main",
     "navigation_with_keys": True,
 }
+html_context = {
+    "display_github": True,
+    "github_user": "Climalysis",  # or your GitHub username
+    "github_repo": "climalysis",
+    "github_version": "main",
+    "doc_path": "docs",
+}
