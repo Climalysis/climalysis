@@ -21,7 +21,7 @@ html_theme = 'furo'
 html_static_path = ['_static']
 html_css_files = ['custom.css']
 html_title = "Climalysis Docs"
-html_logo = "_static/climalysis_logo.png"
+html_logo = "_static/climalysis_logo_2025.png"
 html_theme_options = {
     "source_repository": "https://github.com/Climalysis/climalysis/",
     "source_branch": "main",
