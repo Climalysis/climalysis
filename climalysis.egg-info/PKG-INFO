@@ -1,3 +1,31 @@
+Metadata-Version: 2.4
+Name: climalysis
+Version: 0.0.6
+Summary: A comprehensive toolkit for climate impact analysis.
+Author-email: Jake Casselman <jake.w.casselman@gmail.com>
+License-Expression: GPL-3.0-or-later
+Project-URL: Homepage, https://github.com/Climalysis/climalysis
+Project-URL: Documentation, https://climalysis.readthedocs.io/en/latest/
+Keywords: python,climate,analysis,climate analysis,climate data,impact analysis
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy==1.23.5
+Requires-Dist: scikit_learn==1.2.1
+Requires-Dist: scipy==1.9.3
+Requires-Dist: statsmodels==0.13.5
+Requires-Dist: xarray==2023.3.0
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: license-file
+
 # Climalysis: Your Toolkit for Climate Impact Analysis ☁️🌞
 [![PyPI](https://img.shields.io/pypi/v/climalysis.svg)](https://pypi.org/project/climalysis/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)

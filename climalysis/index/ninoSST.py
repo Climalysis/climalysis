@@ -1,4 +1,5 @@
 import xarray as xr
+from climalysis.utils import normalize_longitudes
 
 class NinoSSTLoader:
     """
@@ -29,8 +30,25 @@ class NinoSSTLoader:
     -------
     load_and_process_data():
         Loads the SST data from the .nc file, processes it for the specified Nino region, and returns the processed data as an xarray DataArray.
+    
+    Index Breakdown
+    -------------
+    The Nino regions are defined as follows:
+    - Niño 1+2: 10°S–0°, 90°W–80°W
+    - Niño 3: 5°N-5°S, 150°W-90°W
+    - Niño 3.4: 5°N-5°S, 170°W-120°W
+    - Niño 4: 5°N-5°S, 160°E-150°W
+    - ONI: Same as Niño 3.4, used for Oceanic Niño Index
+    - TNI: Computed as the difference in normalized SST anomalies between Niño 1+2 and Niño 4 regions.
+    - Custom: Placeholder for user-defined regions.
+
+    References
+    ----------
+    - Trenberth, K. E., & Stepaniak, D. P. (2001). Indices of El Niño Evolution. Journal of Climate, 14(8), 1697–1701.
+    - NOAA Climate Prediction Center: https://www.cpc.ncep.noaa.gov/
     """
-    def __init__(self, file_name_and_path, region, start_time='1959-01', end_time='2022-12', step=1):
+
+    def __init__(self, file_name_and_path, region, start_time='1959-01', end_time='2022-12', step=1, custom_lat_range=None, custom_lon_range=None):
         """
         Initialize NinoSSTLoader with file name, region, time parameters, and step size.
 
@@ -44,17 +62,55 @@ class NinoSSTLoader:
         self.end_time = end_time
         self.step = step
         self.region_dict = {
-            '1+2': ((0, 10), (270, 280)),
-            '3': ((-5, 5), (210, 270)),
-            '3.4': ((-5, 5), (190, 240)),
-            '4': ((-5, 5), (200, 210)),
-            'ONI': ((-5, 5), (190, 240)), # Same as Nino 3.4
-            'TNI': None  # Requires separate computation
+            '1+2': ((-10, 0), normalize_longitudes((270, 280))),
+            '3': ((-5, 5), normalize_longitudes((210, 270))),
+            '3.4': ((-5, 5), normalize_longitudes((190, 240))),
+            '4': ((-5, 5), normalize_longitudes((200, 210))),
+            'ONI': ((-5, 5), normalize_longitudes((190, 240))),
+            'TNI': None,
+            'Custom': (custom_lat_range, normalize_longitudes(custom_lon_range) if custom_lon_range else None)
         }
+        self.lat_range, self.lon_range = self.region_dict[region] if self.region != 'TNI' else (None, None)
+
+        # Validate the information provided
+        if not isinstance(file_name_and_path, str):
+            raise ValueError("File name and path must be a string.")
+        if not isinstance(region, str):
+            raise ValueError("Region must be a string.")
+        if not isinstance(start_time, str):
+            raise ValueError("Start time must be a string.")
+        if not isinstance(end_time, str):
+            raise ValueError("End time must be a string.")
+        if not isinstance(step, int):
+            raise ValueError("Step must be an integer.")
+        if step < 1:
+            raise ValueError("Step must be a positive integer.")
+        if not (start_time <= end_time):
+            raise ValueError("Start time must be less than or equal to end time.")
         if region not in self.region_dict:
             raise ValueError("Unsupported region. Supported regions are '1+2', '3', '3.4', '4', 'ONI', 'TNI'.")
-        self.region = region
-        self.lat_range, self.lon_range = self.region_dict[region] if self.region != 'TNI' else (None, None)
+        # Check if the file exists
+        try:
+            with open(file_name_and_path, 'r') as f:
+                pass
+        except FileNotFoundError:
+            raise FileNotFoundError(f"The file {file_name_and_path} does not exist.")
+        # Check if the file is a .nc file
+        if not file_name_and_path.endswith('.nc'):
+            raise ValueError("The file must be a .nc file.")
+        
+        # Checks for custom lat/lon ranges
+        if self.region == 'Custom':
+            if self.lat_range is None or self.lon_range is None:
+                raise ValueError("For 'Custom' region, you must provide both 'custom_lat_range' and 'custom_lon_range'. These should be tuples of (min, max).")
+            if len(self.lat_range) != 2 or len(self.lon_range) != 2:
+                raise ValueError("Latitude and longitude ranges must be tuples of length 2: (min, max).")
+            if self.lat_range[0] < -90 or self.lat_range[1] > 90:
+                raise ValueError("Latitude values must be between -90 and 90.")
+            if self.lat_range[0] >= self.lat_range[1]:
+                raise ValueError("Latitude range is invalid. The first value must be less than the second.")
+            if self.lon_range[0] >= self.lon_range[1]:
+                raise ValueError("Longitude range is invalid. The first value must be less than the second.")
 
     def load_and_process_data(self):
         """
@@ -63,8 +119,13 @@ class NinoSSTLoader:
         Returns:
         var_nino (xarray.DataArray): The processed SST data for the specified Nino region.
         """
+        # Load the SST data
         var_sst = xr.open_dataset(self.file_name)
         var_sst = var_sst.sel(time=slice(self.start_time, self.end_time))
+        
+        # Normalize longitudes to [-180, 180] if necessary
+        var_sst['lon'] = normalize_longitudes(var_sst.lon)
+        
         if self.region != 'TNI':
             var_nino = var_sst.sst.where(
                 (var_sst.lat <= self.lat_range[1]) & 

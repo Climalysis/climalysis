@@ -1,3 +1,4 @@
+#linearDetrend.py
 import numpy as np
 
 def detrend(data):

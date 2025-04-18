@@ -1,3 +1,4 @@
+#movingAverage.py
 import numpy as np
 
 def moving_average(a, n=3, fill='filled', position=0, func=np.mean):
