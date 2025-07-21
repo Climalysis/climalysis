@@ -56,7 +56,7 @@ class NinoSSTLoader:
         ...
         step (int, optional): The length of the time window (in months) for computing the running average. Defaults to 1.
         """
-        self.file_name = file_name_and_path
+        self.data = file_name_and_path  # can be path string or xr.Dataset
         self.region = region
         self.start_time = start_time
         self.end_time = end_time
@@ -89,16 +89,14 @@ class NinoSSTLoader:
             raise ValueError("Start time must be less than or equal to end time.")
         if region not in self.region_dict:
             raise ValueError("Unsupported region. Supported regions are '1+2', '3', '3.4', '4', 'ONI', 'TNI'.")
-        # Check if the file exists
-        try:
-            with open(file_name_and_path, 'r') as f:
-                pass
-        except FileNotFoundError:
-            raise FileNotFoundError(f"The file {file_name_and_path} does not exist.")
-        # Check if the file is a .nc file
-        if not file_name_and_path.endswith('.nc'):
-            raise ValueError("The file must be a .nc file.")
         
+        # Only validate file if it's a string path
+        if isinstance(self.data, str):
+            if not self.data.endswith('.nc'):
+                raise ValueError("The file must be a .nc file.")
+            if not os.path.exists(self.data):
+                raise FileNotFoundError(f"The file {self.data} does not exist.")
+
         # Checks for custom lat/lon ranges
         if self.region == 'Custom':
             if self.lat_range is None or self.lon_range is None:
@@ -120,7 +118,7 @@ class NinoSSTLoader:
         var_nino (xarray.DataArray): The processed SST data for the specified Nino region.
         """
         # Load the SST data
-        var_sst = xr.open_dataset(self.file_name)
+        var_sst = xr.open_dataset(self.data) if isinstance(self.data, str) else self.data
         var_sst = var_sst.sel(time=slice(self.start_time, self.end_time))
         
         # Normalize longitudes to [-180, 180] if necessary
