@@ -1,5 +1,6 @@
 import xarray as xr
 from climalysis.utils import normalize_longitudes
+import os
 
 class NinoSSTLoader:
     """
@@ -73,8 +74,8 @@ class NinoSSTLoader:
         self.lat_range, self.lon_range = self.region_dict[region] if self.region != 'TNI' else (None, None)
 
         # Validate the information provided
-        if not isinstance(file_name_and_path, str):
-            raise ValueError("File name and path must be a string.")
+        if not isinstance(file_name_and_path, (str, xr.Dataset)):
+            raise ValueError("File must be a string path or an xarray.Dataset.") 
         if not isinstance(region, str):
             raise ValueError("Region must be a string.")
         if not isinstance(start_time, str):
@@ -89,8 +90,6 @@ class NinoSSTLoader:
             raise ValueError("Start time must be less than or equal to end time.")
         if region not in self.region_dict:
             raise ValueError("Unsupported region. Supported regions are '1+2', '3', '3.4', '4', 'ONI', 'TNI'.")
-        
-        # Only validate file if it's a string path
         if isinstance(self.data, str):
             if not self.data.endswith('.nc'):
                 raise ValueError("The file must be a .nc file.")
