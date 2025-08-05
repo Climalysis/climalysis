@@ -1,25 +1,22 @@
 import xarray as xr
 from climalysis.utils import normalize_longitudes
 import os
+import pandas as pd
 
 class NinoSSTLoader:
     """
     This class facilitates loading and processing of sea surface temperature (SST) data for different Nino regions, including the computation of Trans-Niño Index (TNI). The Nino regions supported are 1+2, 3, 3.4, 4, ONI, and TNI.
 
-    Upon instantiation, the user provides the path to the SST data file, the desired Nino region, and optionally the start and end times for the period of interest.
+    Upon instantiation, the user provides the SST data (either as a file path or xarray Dataset) and the desired Nino region. The data should already be filtered for the desired time period.
 
     The SST data is loaded from a .nc file using the xarray library. It is then processed according to the latitudes and longitudes corresponding to the specified Nino region.
 
     Attributes
     ----------
-    file_name_and_path : str
-        The directory path and file name of the SST data file.
+    file_name_and_path : str or xarray.Dataset
+        The directory path and file name of the SST data file, or an xarray Dataset.
     region : str
         The Nino region for which to load data ('1+2', '3', '3.4', '4', 'ONI', 'TNI').
-    start_time : str, optional
-        The start of the time slice. Defaults to '1959-01'.
-    end_time : str, optional
-        The end of the time slice. Defaults to '2022-12'.
     step : int
         The length of the time window (in months) for computing the centered running average. 
         For odd-sized windows, the computed average is placed at the exact center of the window. 
@@ -30,7 +27,7 @@ class NinoSSTLoader:
     Methods
     -------
     load_and_process_data():
-        Loads the SST data from the .nc file, processes it for the specified Nino region, and returns the processed data as an xarray DataArray.
+        Loads the SST data, processes it for the specified Nino region, and returns the processed data as an xarray DataArray.
     
     Index Breakdown
     -------------
@@ -49,18 +46,25 @@ class NinoSSTLoader:
     - NOAA Climate Prediction Center: https://www.cpc.ncep.noaa.gov/
     """
 
-    def __init__(self, file_name_and_path, region, start_time='1959-01', end_time='2022-12', step=1, custom_lat_range=None, custom_lon_range=None):
+    def __init__(self, file_name_and_path, region, step=1, custom_lat_range=None, custom_lon_range=None):
         """
-        Initialize NinoSSTLoader with file name, region, time parameters, and step size.
+        Initialize NinoSSTLoader with file name, region, and step size.
 
         Parameters:
-        ...
-        step (int, optional): The length of the time window (in months) for computing the running average. Defaults to 1.
+        -----------
+        file_name_and_path : str or xarray.Dataset
+            Path to the SST data file or an xarray Dataset containing SST data.
+        region : str
+            The Nino region ('1+2', '3', '3.4', '4', 'ONI', 'TNI', 'Custom').
+        step : int, optional
+            The length of the time window (in months) for computing the running average. Defaults to 1.
+        custom_lat_range : tuple, optional
+            Custom latitude range (min, max) for 'Custom' region.
+        custom_lon_range : tuple, optional
+            Custom longitude range (min, max) for 'Custom' region.
         """
         self.data = file_name_and_path  # can be path string or xr.Dataset
         self.region = region
-        self.start_time = start_time
-        self.end_time = end_time
         self.step = step
         self.region_dict = {
             '1+2': ((-10, 0), normalize_longitudes((270, 280))),
@@ -74,20 +78,25 @@ class NinoSSTLoader:
         self.lat_range, self.lon_range = self.region_dict[region] if self.region != 'TNI' else (None, None)
 
         # Validate the information provided
-        if not isinstance(file_name_and_path, (str, xr.Dataset)):
-            raise ValueError("File must be a string path or an xarray.Dataset.") 
+        if isinstance(file_name_and_path, xr.Dataset):
+            if "sst" not in file_name_and_path:
+                raise ValueError("Dataset must contain a variable named 'sst'.")
+            self.data = file_name_and_path
+        elif isinstance(file_name_and_path, str):
+            if not file_name_and_path.endswith(".nc"):
+                raise ValueError("The file must be a .nc file.")
+            if not os.path.exists(file_name_and_path):
+                raise FileNotFoundError(f"File not found: {file_name_and_path}")
+            self.data = file_name_and_path  # will be opened later
+        else:
+            raise ValueError("File must be a string path or an xarray.Dataset.")
+
         if not isinstance(region, str):
             raise ValueError("Region must be a string.")
-        if not isinstance(start_time, str):
-            raise ValueError("Start time must be a string.")
-        if not isinstance(end_time, str):
-            raise ValueError("End time must be a string.")
         if not isinstance(step, int):
             raise ValueError("Step must be an integer.")
         if step < 1:
             raise ValueError("Step must be a positive integer.")
-        if not (start_time <= end_time):
-            raise ValueError("Start time must be less than or equal to end time.")
         if region not in self.region_dict:
             raise ValueError("Unsupported region. Supported regions are '1+2', '3', '3.4', '4', 'ONI', 'TNI'.")
         if isinstance(self.data, str):
@@ -111,17 +120,30 @@ class NinoSSTLoader:
 
     def load_and_process_data(self):
         """
-        Loads the SST data from the .nc file, processes it for the specified Nino region, and applies a running average over the defined step size. If the region is 'ONI', the step size is forced to 3 months, regardless of the user-specified step size.
+        Loads the SST data, processes it for the specified Nino region, and applies a running average over the defined step size. If the region is 'ONI', the step size is forced to 3 months, regardless of the user-specified step size.
 
         Returns:
         var_nino (xarray.DataArray): The processed SST data for the specified Nino region.
         """
         # Load the SST data
         var_sst = xr.open_dataset(self.data) if isinstance(self.data, str) else self.data
-        var_sst = var_sst.sel(time=slice(self.start_time, self.end_time))
+        
+        # Handle cftime objects by converting to pandas datetime if possible
+        if hasattr(var_sst.time.values[0], 'strftime'):
+            # Convert cftime to pandas datetime for better compatibility
+            try:
+                import cftime
+                time_values = var_sst.time.values
+                if isinstance(time_values[0], cftime.datetime):
+                    # Convert cftime to pandas datetime
+                    pd_times = [pd.Timestamp(t.strftime('%Y-%m-%d %H:%M:%S')) for t in time_values]
+                    var_sst = var_sst.assign_coords(time=pd_times)
+            except (ImportError, AttributeError):
+                pass
         
         # Normalize longitudes to [-180, 180] if necessary
         var_sst['lon'] = normalize_longitudes(var_sst.lon)
+    
         
         if self.region != 'TNI':
             var_nino = var_sst.sst.where(
@@ -150,6 +172,10 @@ class NinoSSTLoader:
             )
             var_nino_4 = var_nino_4.mean(dim=['lon', 'lat'])
             var_nino = var_nino_12 - var_nino_4
-        step = 3 if self.region == 'ONI' else self.step
-        var_nino = var_nino.rolling(time=step, center=True).mean()
-        return var_nino
+        step = 3 if self.region == 'ONI' else self.step # Force ONI to use a 3-month step
+        if len(var_nino.time) >= step:
+            var_nino = var_nino.rolling(time=step, center=True).mean()
+        else:
+            raise ValueError(f"Not enough time steps ({len(var_nino.time)}) for step={step}")
+
+        return var_nino.squeeze()
