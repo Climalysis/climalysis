@@ -1,64 +1,65 @@
-#movingAverage.py
+# movingAverage.py
 import numpy as np
 
-def moving_average(a, n=3, fill='filled', position=0, func=np.mean):
+def moving_average(a, n=3, mode='leading', func=np.mean):
     """
-    Calculate the moving average of a 1D array using a specified averaging function.
+    Calculate the moving average of a 1D NumPy array using a specified averaging function and window alignment.
+
+    Supported modes:
+    - 'leading':  Average is computed from a[i:i+n] and stored at index i.
+    - 'trailing': Average is computed from a[i-n+1:i+1] and stored at index i.
+    - 'centered': Average is computed from a[i-k:i+k+1] and stored at index i, where k = n // 2.
 
     Parameters
     ----------
     a : ndarray
-        Input data as a 1-dimensional numpy array. Should not be empty or contain NaN or infinity values.
+        Input data as a 1D NumPy array. Must not be empty or contain NaN or infinity values.
     n : int, optional
-        Window size for the moving average. Defaults to 3. Must be a positive integer and cannot exceed the size of the input array.
-    fill : str, optional
-        Determines how the output array is filled.
-        - 'filled': The output array is filled with NaN values, and the moving average values are inserted at the specified position. (default)
-        - 'unfilled': The output array only contains the moving average values. The window size and position should not exceed the size of the input array.
-    position : int, optional
-        The position in the output array where the moving average values are inserted. Defaults to 0 (the first spot). Must be a non-negative integer and cannot exceed the size of the input array.
-    func : function, optional
-        The function used to calculate the average. Defaults to numpy.mean. 
+        Window size for the moving average. Must be a positive integer ≤ len(a). Default is 3.
+    mode : {'leading', 'trailing', 'centered'}, optional
+        Defines where the window is aligned relative to the index. Default is 'leading'.
+    func : callable, optional
+        Function used to compute the average over each window (e.g., np.mean, np.median). Default is np.mean.
 
     Returns
     -------
     ndarray
-        Array with the moving average values inserted at the specified position (or at the beginning if fill='unfilled').
+        A NumPy array of the same shape as the input, with NaNs in positions where the moving average
+        cannot be computed due to insufficient data.
 
     Raises
     ------
     ValueError
-        If the input 'a' is not a 1-dimensional numpy array, is empty, or contains NaN or infinity values,
-        or 'n' is not a positive integer or exceeds the size of the input array,
-        or 'position' is not a non-negative integer or exceeds the size of the input array,
-        or 'fill' is not 'filled' or 'unfilled',
-        or the combination of 'n' and 'position' would exceed the size of the input array when 'fill' is 'filled'.
+        If the input is not valid or mode is not recognized.
     """
     if not isinstance(a, np.ndarray) or a.ndim != 1:
-        raise ValueError("Input must be a 1-dimensional numpy array.")
+        raise ValueError("Input must be a 1-dimensional NumPy array.")
+    if len(a) == 0:
+        raise ValueError("Input array should not be empty.")
     if np.isnan(a).any():
         raise ValueError("Input array should not contain NaN values.")
     if np.isinf(a).any():
         raise ValueError("Input array should not contain infinity values.")
-    if len(a) == 0:
-        raise ValueError("Input array should not be empty.")
     if not isinstance(n, int) or n <= 0 or n > len(a):
-        raise ValueError("Window size must be a positive integer and cannot exceed the size of the input array.")
-    if not isinstance(position, int) or position < 0 or position >= len(a):
-        raise ValueError("Position must be a non-negative integer and cannot exceed the size of the input array.")
-    if fill not in ['filled', 'unfilled']:
-        raise ValueError("Invalid value for 'fill'. Must be 'filled' or 'unfilled'.")
-    if fill == 'filled' and position + n > len(a):
-        raise ValueError("For 'filled' option, the combination of window size 'n' and position should not exceed the size of the input array.")
+        raise ValueError("Window size must be a positive integer not exceeding the input length.")
+    if mode not in ['leading', 'trailing', 'centered']:
+        raise ValueError("Mode must be 'leading', 'trailing', or 'centered'.")
 
-    ret = np.cumsum(a, dtype=float)
-    ret[n:] = ret[n:] - ret[:-n]
-    var = ret[n - 1:] / n
+    output = np.full_like(a, np.nan, dtype=float)
 
-    if fill == 'unfilled':
-        return var
+    if mode == 'leading':
+        for i in range(0, len(a) - n + 1):
+            output[i] = func(a[i:i + n])
 
-    output = np.empty_like(a)
-    output.fill(np.nan)
-    output[position:position + n] = func(a[position:position + n])
+    elif mode == 'trailing':
+        for i in range(n - 1, len(a)):
+            output[i] = func(a[i - n + 1:i + 1])
+
+    elif mode == 'centered':
+        if n % 2 == 0:
+            raise ValueError("Window size must be odd for 'centered' mode.")
+        k = n // 2
+        for i in range(k, len(a) - k):
+            output[i] = func(a[i - k:i + k + 1])
+
     return output

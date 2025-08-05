@@ -107,8 +107,24 @@ from climalysis import nino_index, normalize_longitudes
 
 sst = nino_index("data/sst_monthly.nc", region="3.4").load_and_process_data()
 sst.plot()
-
 ```
+### 🔧 Local Development / Installation
+
+To use the latest development version of `climalysis` without waiting for the next PyPI release:
+
+```bash
+# Clone the repo and switch to the desired branch (e.g. release/0.1.4)
+git clone https://github.com/Climalysis/climalysis.git
+cd climalysis
+git checkout release/0.1.4
+
+# Install in editable mode (requires Python 3.8+ and pip)
+pip install -e .
+```
+
+This will install the package locally and reflect any edits made to the source code immediately.
+
+
 
 You can now access the functions/classes in these modules.
 
