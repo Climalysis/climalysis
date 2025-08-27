@@ -5,3 +5,4 @@ setuptools==67.8.0
 statsmodels==0.13.5
 xarray==2023.3.0
 myst-parser==2.0.0
+xeofs==3.0.4
