@@ -1,3 +1,7 @@
 .git
 *.ipynb
 *.pypirc
+
+# Ignore build artifacts
+*.egg-info/
+__pycache__/
